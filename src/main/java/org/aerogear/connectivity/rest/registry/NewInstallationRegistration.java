@@ -24,13 +24,14 @@ public class NewInstallationRegistration {
         
         // read (and remove) the REQUIRED values from the 'JSON':
         String token = (String) map.remove("token");
-        // HACK.... so that I can REUSE the same CURL POST request :)))))
-        token = UUID.randomUUID().toString();
-        
-        
         String os = (String) map.remove("os");
         String type = (String) map.remove("type");
         String version = (String) map.remove("version");
+
+
+        // HACK.... so that I can REUSE the same CURL POST request :)))))
+        token = UUID.randomUUID().toString();
+
         
         // store all the required data, on the MobileInstallationAgent
         MobileInstallationAgent device = (MobileInstallationAgent) createMobileAgent(token);
