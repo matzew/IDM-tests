@@ -44,13 +44,8 @@ public class NewInstallationRegistration {
         for (Object key : allTheKeys) {
             String sKey = (String) key;
             
-            // onlu flat data....
-             String value = (String) map.get(sKey);
-
-            
-            System.out.println("\n\n\n\n\n+++++");
-            System.out.println("     "   + sKey + ":" + value);
-            System.out.println("+++++\n\n\n\n\n");
+            // only flat data.... (no nested maps/arrays)
+            String value = (String) map.get(sKey);
             
             // store on the device
             device.setAttribute(new Attribute<String>(sKey, value));
