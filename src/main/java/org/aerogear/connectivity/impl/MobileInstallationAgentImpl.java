@@ -1,8 +1,9 @@
-package org.aerogear.connectivity.api;
+package org.aerogear.connectivity.impl;
 
+import org.aerogear.connectivity.api.MobileApplicationInstance;
 import org.picketlink.idm.model.SimpleAgent;
 
-public class MobileInstallationAgent extends SimpleAgent {
+public class MobileInstallationAgentImpl extends SimpleAgent implements MobileApplicationInstance {
     private static final long serialVersionUID = -8250236704677368805L;
     private String deviceToken;
     private String mobileOperatingSystem;
@@ -15,11 +16,11 @@ public class MobileInstallationAgent extends SimpleAgent {
     // introducing an OPTIONAL clientIdentifier:
     private String clientIdentifier;
     
-    public MobileInstallationAgent() {
+    public MobileInstallationAgentImpl() {
         super(null);
     }
 
-    public MobileInstallationAgent(String deviceToken) {
+    public MobileInstallationAgentImpl(String deviceToken) {
         super(deviceToken); // this is the "login name";
         this.deviceToken = deviceToken;
     }
