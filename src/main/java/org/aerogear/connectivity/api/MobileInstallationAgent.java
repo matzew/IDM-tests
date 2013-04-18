@@ -15,7 +15,10 @@ public class MobileInstallationAgent extends SimpleAgent {
     // introducing an OPTIONAL clientIdentifier:
     private String clientIdentifier;
     
-    
+    public MobileInstallationAgent() {
+        super(null);
+    }
+
     public MobileInstallationAgent(String deviceToken) {
         super(deviceToken); // this is the "login name";
         this.deviceToken = deviceToken;
@@ -27,6 +30,9 @@ public class MobileInstallationAgent extends SimpleAgent {
 
     public void setDeviceToken(String deviceToken) {
         this.deviceToken = deviceToken;
+        
+        // looks like I HAVE to use the "login name" :-(
+        this.setLoginName(deviceToken);
     }
 
     public String getMobileOperatingSystem() {
@@ -59,6 +65,14 @@ public class MobileInstallationAgent extends SimpleAgent {
 
     public void setClientIdentifier(String clientIdentifier) {
         this.clientIdentifier = clientIdentifier;
+    }
+
+    @Override
+    public String toString() {
+        return "MobileInstallationAgent [deviceToken=" + deviceToken
+                + ", mobileOperatingSystem=" + mobileOperatingSystem
+                + ", deviceType=" + deviceType + ", version=" + version
+                + ", clientIdentifier=" + clientIdentifier + "]";
     }
 
 }

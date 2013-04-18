@@ -1,7 +1,6 @@
 package org.aerogear.connectivity;
 
-import java.util.Map;
-
+import org.aerogear.connectivity.api.MobileInstallationAgent;
 import org.aerogear.connectivity.rest.registry.NewInstallationRegistration;
 import org.jboss.aerogear.controller.router.AbstractRoutingModule;
 import org.jboss.aerogear.controller.router.RequestMethod;
@@ -20,6 +19,6 @@ public class App extends AbstractRoutingModule
             .on(RequestMethod.POST)
             .consumes(JSON)
             .produces(JSON)
-            .to(NewInstallationRegistration.class).newDevice(param(Map.class));
+            .to(NewInstallationRegistration.class).newDevice(param(MobileInstallationAgent.class));
     }
 }
