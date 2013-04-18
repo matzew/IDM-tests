@@ -24,10 +24,12 @@ https://github.com/matzew/IDM-tests/blob/master/src/main/java/org/aerogear/conne
 You can try with (after you deployed the WAR):
 
 ```
-curl...
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"deviceToken":"123","mobileOperatingSystem":"iOS","deviceType":"iPad","version":"6.1.2"}' http://localhost:8080/unified-push-server-controller/registry/device
 ```
 
-or
+or, with an optional "client id::
 ```
-curl..
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"deviceToken":"12341","mobileOperatingSystem":"iOS","deviceType":"iPad","version":"6.1.2", "clientIdentifier":"kalle@gmail.com"}' http://localhost:8080/unified-push-server-controller/registry/device
 ```
+
+
