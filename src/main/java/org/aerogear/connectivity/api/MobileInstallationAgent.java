@@ -3,11 +3,18 @@ package org.aerogear.connectivity.api;
 import org.picketlink.idm.model.SimpleAgent;
 
 public class MobileInstallationAgent extends SimpleAgent {
-    private static final long serialVersionUID = -3285130123666661337L;
+    private static final long serialVersionUID = -8250236704677368805L;
     private String deviceToken;
     private String mobileOperatingSystem;
     private String deviceType;
     private String version;
+    // NOT sure if that really fits in here...
+    // IF the app has a user concept, the push needs
+    // to bridge between real app and push database
+    // 
+    // introducing an OPTIONAL clientIdentifier:
+    private String clientIdentifier;
+    
     
     public MobileInstallationAgent(String deviceToken) {
         super(deviceToken); // this is the "login name";
@@ -44,6 +51,14 @@ public class MobileInstallationAgent extends SimpleAgent {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getClientIdentifier() {
+        return clientIdentifier;
+    }
+
+    public void setClientIdentifier(String clientIdentifier) {
+        this.clientIdentifier = clientIdentifier;
     }
 
 }
